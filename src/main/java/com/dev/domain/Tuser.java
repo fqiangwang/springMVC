@@ -1,7 +1,13 @@
 package com.dev.domain;
 
-public class Tuser {
+import java.io.Serializable;
 
+public class Tuser implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public int getId() {
 		return id;
 	}

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.dev.dao.TuserMapper;
 import com.dev.domain.Tuser;
 import com.dev.service.TuserService;
+import com.redisUtil.JedisClusterFactory;
 
 import test.base.baseTest;
 

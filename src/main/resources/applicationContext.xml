@@ -24,6 +24,22 @@
         <property name="port" value="6379"/>
         <property name="pass" value="abc"/>
     </bean>  -->
+    <bean name="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
+        <property name="maxWaitMillis" value="-1" />
+        <property name="maxTotal" value="1000" />
+        <property name="minIdle" value="8" />
+        <property name="maxIdle" value="100" />
+    </bean>
+    <bean id="jedisCluster" class="com.redisUtil.JedisClusterFactory">
+        <property name="addressConfig">
+            <value>classpath:redis-config.properties</value>
+        </property>
+        <property name="addressKeyPrefix" value="address" />
+
+        <property name="timeout" value="300000" />
+        <property name="maxRedirections" value="6" />
+        <property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
+    </bean>
     <!-- mybatis -->
      <bean id="propertyConfigurer"
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
